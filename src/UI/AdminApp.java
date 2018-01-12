@@ -48,10 +48,10 @@ public class AdminApp extends javax.swing.JFrame {
     private void initComponents() {
 
         ppMenu = new javax.swing.JPopupMenu();
-        mnuRefresh = new javax.swing.JMenuItem();
+        miRefresh = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        mnuDoiMatKhau = new javax.swing.JMenuItem();
-        mnuDangXuat = new javax.swing.JMenuItem();
+        miDoiMatKhau = new javax.swing.JMenuItem();
+        miDangXuat = new javax.swing.JMenuItem();
         pnlMain = new javax.swing.JPanel();
         lblMenu = new javax.swing.JLabel();
         lblBanner = new javax.swing.JLabel();
@@ -114,27 +114,32 @@ public class AdminApp extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
 
-        mnuRefresh.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        mnuRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/Restart_20px.png"))); // NOI18N
-        mnuRefresh.setText("Refresh");
-        mnuRefresh.setToolTipText("");
-        ppMenu.add(mnuRefresh);
+        miRefresh.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        miRefresh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/Restart_20px.png"))); // NOI18N
+        miRefresh.setText("Refresh");
+        miRefresh.setToolTipText("");
+        ppMenu.add(miRefresh);
         ppMenu.add(jSeparator1);
 
-        mnuDoiMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        mnuDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/password.png"))); // NOI18N
-        mnuDoiMatKhau.setText("Đổi mật khẩu");
-        ppMenu.add(mnuDoiMatKhau);
+        miDoiMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        miDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/password.png"))); // NOI18N
+        miDoiMatKhau.setText("Đổi mật khẩu");
+        ppMenu.add(miDoiMatKhau);
 
-        mnuDangXuat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        mnuDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/Sign Out_20px.png"))); // NOI18N
-        mnuDangXuat.setText("Đăng xuất");
-        mnuDangXuat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuDangXuatActionPerformed(evt);
+        miDangXuat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        miDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/Sign Out_20px.png"))); // NOI18N
+        miDangXuat.setText("Đăng xuất");
+        miDangXuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                miDangXuatMouseClicked(evt);
             }
         });
-        ppMenu.add(mnuDangXuat);
+        miDangXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miDangXuatActionPerformed(evt);
+            }
+        });
+        ppMenu.add(miDangXuat);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -447,17 +452,8 @@ public class AdminApp extends javax.swing.JFrame {
         tbQuanLyKiemDuyet.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbQuanLyKiemDuyet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"123", "asd", null, null, null},
-                {"123", "fdgdfg", null, null, null},
-                {"3123", "asd", null, null, null},
-                {"12312", "asd", null, null, null},
-                {"31223", "asd", null, null, null},
-                {"31", "asd", null, null, null},
-                {"12", "as", null, null, null},
-                {"31212", "d", null, null, null},
-                {"123", "ax", null, null, null},
-                {"23", "cxzc", null, null, null},
-                {"123s", "zc", null, null, null}
+                {"123", "asd", "vvvv", "nnnn", "bbbbbb"},
+                {"123", "fdgdfg", "bbbbbb", "vvvvvv", "nnnn"}
             },
             new String [] {
                 "ID", "Họ và tên", "Phân quyền", "Hạn cấp quyền", "Trạng thái"
@@ -486,6 +482,11 @@ public class AdminApp extends javax.swing.JFrame {
         tbQuanLyKiemDuyet.setShowHorizontalLines(false);
         tbQuanLyKiemDuyet.setShowVerticalLines(false);
         tbQuanLyKiemDuyet.getTableHeader().setReorderingAllowed(false);
+        tbQuanLyKiemDuyet.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbQuanLyKiemDuyetMouseClicked(evt);
+            }
+        });
         scQuanLyKiemDuyet.setViewportView(tbQuanLyKiemDuyet);
         if (tbQuanLyKiemDuyet.getColumnModel().getColumnCount() > 0) {
             tbQuanLyKiemDuyet.getColumnModel().getColumn(0).setMinWidth(50);
@@ -516,9 +517,9 @@ public class AdminApp extends javax.swing.JFrame {
 
         tbBaoCaoThongKe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null, null, null, null},
-                {"2", null, null, null, null},
-                {"3", null, null, null, null},
+                {"1", "ffffff", "xxxxx", "pppp", "ccccc"},
+                {"2", "aaaa", "ffffffff", "xxxxx", "aaa"},
+                {"3", "xxxxx", "aaa", "ffffff", "ccc"},
                 {null, null, null, null, null}
             },
             new String [] {
@@ -546,6 +547,11 @@ public class AdminApp extends javax.swing.JFrame {
         tbBaoCaoThongKe.setShowHorizontalLines(false);
         tbBaoCaoThongKe.setShowVerticalLines(false);
         tbBaoCaoThongKe.getTableHeader().setReorderingAllowed(false);
+        tbBaoCaoThongKe.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbBaoCaoThongKeMouseClicked(evt);
+            }
+        });
         scBaoCaoThongKe.setViewportView(tbBaoCaoThongKe);
 
         pnlBaoCaoThongKe.add(scBaoCaoThongKe);
@@ -558,9 +564,9 @@ public class AdminApp extends javax.swing.JFrame {
 
         tbThongBao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null, null, null},
-                {"2", null, null, null},
-                {"3", null, null, null},
+                {"1", "aaaaa", "xxxx", "bbbb"},
+                {"2", "bbb", "aaaa", "xxxx"},
+                {"3", "cccc", "xxxx", "aaaa"},
                 {null, null, null, null}
             },
             new String [] {
@@ -588,6 +594,11 @@ public class AdminApp extends javax.swing.JFrame {
         tbThongBao.setShowHorizontalLines(false);
         tbThongBao.setShowVerticalLines(false);
         tbThongBao.getTableHeader().setReorderingAllowed(false);
+        tbThongBao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbThongBaoMouseClicked(evt);
+            }
+        });
         scThongBao.setViewportView(tbThongBao);
         if (tbThongBao.getColumnModel().getColumnCount() > 0) {
             tbThongBao.getColumnModel().getColumn(0).setMinWidth(200);
@@ -650,6 +661,11 @@ public class AdminApp extends javax.swing.JFrame {
         tbLichSuTuongTac.setShowHorizontalLines(false);
         tbLichSuTuongTac.setShowVerticalLines(false);
         tbLichSuTuongTac.getTableHeader().setReorderingAllowed(false);
+        tbLichSuTuongTac.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbLichSuTuongTacMouseClicked(evt);
+            }
+        });
         scLichSuTuongTac.setViewportView(tbLichSuTuongTac);
         if (tbLichSuTuongTac.getColumnModel().getColumnCount() > 0) {
             tbLichSuTuongTac.getColumnModel().getColumn(0).setMinWidth(150);
@@ -739,10 +755,66 @@ public class AdminApp extends javax.swing.JFrame {
         vead.setVisible(true);
     }//GEN-LAST:event_btnChinhSuaActionPerformed
 
-    private void mnuDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuDangXuatActionPerformed
+    private void miDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDangXuatActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_mnuDangXuatActionPerformed
+        new LoginFrame().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_miDangXuatActionPerformed
+
+    private void tbQuanLyKiemDuyetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbQuanLyKiemDuyetMouseClicked
+        // TODO add your handling code here:
+        int index = tbQuanLyKiemDuyet.getSelectedRow();
+        TableModel model = tbQuanLyKiemDuyet.getModel();
+        String idNguoiKiemDuyet = model.getValueAt(index, 0).toString();
+        String hoTen = model.getValueAt(index, 1).toString();
+        String phanQuyen = model.getValueAt(index, 2).toString();
+        String hanCapQuyen = model.getValueAt(index, 3).toString();
+        String trangThai = model.getValueAt(index, 4).toString();
+        
+        ViewEditModDialog vemd = new ViewEditModDialog(this, rootPaneCheckingEnabled);
+        vemd.setVisible(true);
+    }//GEN-LAST:event_tbQuanLyKiemDuyetMouseClicked
+
+    private void tbBaoCaoThongKeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbBaoCaoThongKeMouseClicked
+        // TODO add your handling code here:
+        int index = tbBaoCaoThongKe.getSelectedRow();
+        TableModel model = tbBaoCaoThongKe.getModel();
+        String thoiGian = model.getValueAt(index, 0).toString();
+        String idChuHo = model.getValueAt(index, 1).toString();
+        String yeuCau = model.getValueAt(index, 2).toString();
+        String kiemDuyet = model.getValueAt(index, 3).toString();
+        String trangThai = model.getValueAt(index, 4).toString();
+        
+        JOptionPane.showMessageDialog(rootPane, thoiGian + idChuHo + yeuCau + kiemDuyet);
+    }//GEN-LAST:event_tbBaoCaoThongKeMouseClicked
+
+    private void tbThongBaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbThongBaoMouseClicked
+        // TODO add your handling code here:
+        int index = tbThongBao.getSelectedRow();
+        TableModel model = tbThongBao.getModel();
+        String thoiGian = model.getValueAt(index, 0).toString();
+        String stt = model.getValueAt(index, 1).toString();
+        String tieuDe = model.getValueAt(index, 2).toString();
+        String noiDung = model.getValueAt(index, 3).toString();
+        
+        JOptionPane.showMessageDialog(rootPane, thoiGian + stt + tieuDe + noiDung);
+    }//GEN-LAST:event_tbThongBaoMouseClicked
+
+    private void tbLichSuTuongTacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLichSuTuongTacMouseClicked
+        // TODO add your handling code here:
+        int index = tbLichSuTuongTac.getSelectedRow();
+        TableModel model = tbLichSuTuongTac.getModel();
+        String ngayThang = model.getValueAt(index, 0).toString();
+        String hoatDong = model.getValueAt(index, 1).toString();
+        
+        JOptionPane.showMessageDialog(rootPane, ngayThang + hoatDong);
+    }//GEN-LAST:event_tbLichSuTuongTacMouseClicked
+
+    private void miDangXuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_miDangXuatMouseClicked
+        // TODO add your handling code here:
+        new LoginFrame().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_miDangXuatMouseClicked
 
     /**
      * @param args the command line arguments
@@ -831,9 +903,9 @@ public class AdminApp extends javax.swing.JFrame {
     private javax.swing.JLabel lblSoID;
     private javax.swing.JLabel lblTieuDe;
     private javax.swing.JLabel lblTonGiao;
-    private javax.swing.JMenuItem mnuDangXuat;
-    private javax.swing.JMenuItem mnuDoiMatKhau;
-    private javax.swing.JMenuItem mnuRefresh;
+    private javax.swing.JMenuItem miDangXuat;
+    private javax.swing.JMenuItem miDoiMatKhau;
+    private javax.swing.JMenuItem miRefresh;
     private javax.swing.JPanel pnlBaoCaoThongKe;
     private javax.swing.JPanel pnlLichSuTuongTac;
     private javax.swing.JPanel pnlMain;

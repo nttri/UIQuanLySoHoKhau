@@ -36,10 +36,10 @@ public class LoginFrame extends javax.swing.JFrame {
     public LoginFrame() {
         initComponents();
         CustomInitComponents();
-        jPanel2.setBackground(new Color(0,0,0,80));
     }
 
     public void CustomInitComponents() {
+        pnlBody.setBackground(new Color(0,0,0,80));
         tfTenDangNhap.setBackground(new Color(0,0,0,0));
         tfMatKhau.setBackground(new Color(0,0,0,0));
         ScaleImageIcon("resource\\images\\sbanner.png", jLabel1);
@@ -70,18 +70,18 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jPanel2 = new javax.swing.JPanel();
+        pnlBody = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(700, 460));
+        setPreferredSize(new java.awt.Dimension(700, 490));
         setResizable(false);
-        setSize(new java.awt.Dimension(700, 460));
+        setSize(new java.awt.Dimension(700, 490));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(49, 166, 72));
         jPanel1.setLayout(null);
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(90, 25, 535, 80);
+        jLabel1.setBounds(75, 30, 530, 80);
 
         lblTenDangNhap.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblTenDangNhap.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,19 +138,19 @@ public class LoginFrame extends javax.swing.JFrame {
         jPanel1.add(jSeparator2);
         jSeparator2.setBounds(255, 276, 300, 10);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pnlBodyLayout = new javax.swing.GroupLayout(pnlBody);
+        pnlBody.setLayout(pnlBodyLayout);
+        pnlBodyLayout.setHorizontalGroup(
+            pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 530, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+        pnlBodyLayout.setVerticalGroup(
+            pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 240, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2);
-        jPanel2.setBounds(75, 120, 530, 280);
+        jPanel1.add(pnlBody);
+        pnlBody.setBounds(75, 140, 530, 240);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 700, 460);
@@ -161,7 +161,7 @@ public class LoginFrame extends javax.swing.JFrame {
 
     private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
         // TODO add your handling code here:
-        String url = "http://192.168.1.66:8090/api/login";
+        String url = "http://192.168.1.36:8090/api/login";
 
         HttpClient client = new DefaultHttpClient();
         HttpPost post = new HttpPost(url);
@@ -222,8 +222,8 @@ public class LoginFrame extends javax.swing.JFrame {
             return;
         }
         if (res.contains("User")) {
-            AddNhanKhauDialog ank = new AddNhanKhauDialog(this, true);
-            ank.setVisible(true);
+            new ChuHoApp().setVisible(true);
+            this.setVisible(false);
         } else if (res.contains("Mod")) {
             new ModApp().setVisible(true);
             this.setVisible(false);
@@ -274,11 +274,11 @@ public class LoginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblMatKhau;
     private javax.swing.JLabel lblTenDangNhap;
+    private javax.swing.JPanel pnlBody;
     private javax.swing.JPasswordField tfMatKhau;
     private javax.swing.JTextField tfTenDangNhap;
     // End of variables declaration//GEN-END:variables

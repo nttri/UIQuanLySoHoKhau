@@ -8,7 +8,7 @@
         <Property name="useNullLayout" type="boolean" value="true"/>
       </Layout>
       <SubComponents>
-        <MenuItem class="javax.swing.JMenuItem" name="mnuRefresh">
+        <MenuItem class="javax.swing.JMenuItem" name="miRefresh">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -22,7 +22,7 @@
         </MenuItem>
         <Component class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
         </Component>
-        <MenuItem class="javax.swing.JMenuItem" name="mnuDoiMatKhau">
+        <MenuItem class="javax.swing.JMenuItem" name="miDoiMatKhau">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -33,7 +33,7 @@
             <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
           </Properties>
         </MenuItem>
-        <MenuItem class="javax.swing.JMenuItem" name="mnuDangXuat">
+        <MenuItem class="javax.swing.JMenuItem" name="miDangXuat">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -44,7 +44,8 @@
             <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnuDangXuatActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="miDangXuatMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miDangXuatActionPerformed"/>
           </Events>
         </MenuItem>
       </SubComponents>
@@ -904,36 +905,27 @@
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="5" rowCount="11">
+                          <Table columnCount="5" rowCount="2">
                             <Column editable="false" title="ID" type="java.lang.String">
                               <Data value="123"/>
                               <Data value="123"/>
-                              <Data value="3123"/>
-                              <Data value="12312"/>
-                              <Data value="31223"/>
-                              <Data value="31"/>
-                              <Data value="12"/>
-                              <Data value="31212"/>
-                              <Data value="123"/>
-                              <Data value="23"/>
-                              <Data value="123s"/>
                             </Column>
                             <Column editable="false" title="H&#x1ecd; v&#xe0; t&#xea;n" type="java.lang.String">
                               <Data value="asd"/>
                               <Data value="fdgdfg"/>
-                              <Data value="asd"/>
-                              <Data value="asd"/>
-                              <Data value="asd"/>
-                              <Data value="asd"/>
-                              <Data value="as"/>
-                              <Data value="d"/>
-                              <Data value="ax"/>
-                              <Data value="cxzc"/>
-                              <Data value="zc"/>
                             </Column>
-                            <Column editable="false" title="Ph&#xe2;n quy&#x1ec1;n" type="java.lang.String"/>
-                            <Column editable="false" title="H&#x1ea1;n c&#x1ea5;p quy&#x1ec1;n" type="java.lang.String"/>
-                            <Column editable="false" title="Tr&#x1ea1;ng th&#xe1;i" type="java.lang.String"/>
+                            <Column editable="false" title="Ph&#xe2;n quy&#x1ec1;n" type="java.lang.String">
+                              <Data value="vvvv"/>
+                              <Data value="bbbbbb"/>
+                            </Column>
+                            <Column editable="false" title="H&#x1ea1;n c&#x1ea5;p quy&#x1ec1;n" type="java.lang.String">
+                              <Data value="nnnn"/>
+                              <Data value="vvvvvv"/>
+                            </Column>
+                            <Column editable="false" title="Tr&#x1ea1;ng th&#xe1;i" type="java.lang.String">
+                              <Data value="bbbbbb"/>
+                              <Data value="nnnn"/>
+                            </Column>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -984,6 +976,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbQuanLyKiemDuyetMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1048,10 +1043,30 @@
                               <Data value="3"/>
                               <Data value="null"/>
                             </Column>
-                            <Column editable="false" title="ID Ch&#x1ee7; h&#x1ed9;" type="java.lang.String"/>
-                            <Column editable="false" title="Y&#xea;u c&#x1ea7;u" type="java.lang.String"/>
-                            <Column editable="false" title="Ki&#x1ec3;m duy&#x1ec7;t" type="java.lang.String"/>
-                            <Column editable="false" title="Tr&#x1ea1;ng Th&#xe1;i" type="java.lang.String"/>
+                            <Column editable="false" title="ID Ch&#x1ee7; h&#x1ed9;" type="java.lang.String">
+                              <Data value="ffffff"/>
+                              <Data value="aaaa"/>
+                              <Data value="xxxxx"/>
+                              <Data value="null"/>
+                            </Column>
+                            <Column editable="false" title="Y&#xea;u c&#x1ea7;u" type="java.lang.String">
+                              <Data value="xxxxx"/>
+                              <Data value="ffffffff"/>
+                              <Data value="aaa"/>
+                              <Data value="null"/>
+                            </Column>
+                            <Column editable="false" title="Ki&#x1ec3;m duy&#x1ec7;t" type="java.lang.String">
+                              <Data value="pppp"/>
+                              <Data value="xxxxx"/>
+                              <Data value="ffffff"/>
+                              <Data value="null"/>
+                            </Column>
+                            <Column editable="false" title="Tr&#x1ea1;ng Th&#xe1;i" type="java.lang.String">
+                              <Data value="ccccc"/>
+                              <Data value="aaa"/>
+                              <Data value="ccc"/>
+                              <Data value="null"/>
+                            </Column>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1096,6 +1111,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbBaoCaoThongKeMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1142,9 +1160,24 @@
                               <Data value="3"/>
                               <Data value="null"/>
                             </Column>
-                            <Column editable="false" title="STT" type="java.lang.String"/>
-                            <Column editable="false" title="Ti&#xea;u &#x111;&#x1ec1;" type="java.lang.String"/>
-                            <Column editable="false" title="N&#x1ed9;i dung" type="java.lang.String"/>
+                            <Column editable="false" title="STT" type="java.lang.String">
+                              <Data value="aaaaa"/>
+                              <Data value="bbb"/>
+                              <Data value="cccc"/>
+                              <Data value="null"/>
+                            </Column>
+                            <Column editable="false" title="Ti&#xea;u &#x111;&#x1ec1;" type="java.lang.String">
+                              <Data value="xxxx"/>
+                              <Data value="aaaa"/>
+                              <Data value="xxxx"/>
+                              <Data value="null"/>
+                            </Column>
+                            <Column editable="false" title="N&#x1ed9;i dung" type="java.lang.String">
+                              <Data value="bbbb"/>
+                              <Data value="xxxx"/>
+                              <Data value="aaaa"/>
+                              <Data value="null"/>
+                            </Column>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -1184,6 +1217,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbThongBaoMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -1297,6 +1333,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbLichSuTuongTacMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

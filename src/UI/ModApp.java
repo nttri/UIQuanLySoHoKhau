@@ -443,9 +443,9 @@ public class ModApp extends javax.swing.JFrame {
         tbDSSoHoKhau.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbDSSoHoKhau.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"123", "asd", null, null},
-                {"123", "fdgdfg", null, null},
-                {"3123", "asd", null, null}
+                {"123", "asd", "xxxxxx", "tttttt"},
+                {"123", "fdgdfg", "ffffffff", "nnnnnn"},
+                {"3123", "asd", "bbbbbbb", "zzzzzzzzz"}
             },
             new String [] {
                 "ID Sổ hộ khẩu", "Họ tên chủ hộ", "ID Chủ hộ", "Địa chỉ"
@@ -474,6 +474,11 @@ public class ModApp extends javax.swing.JFrame {
         tbDSSoHoKhau.setShowHorizontalLines(false);
         tbDSSoHoKhau.setShowVerticalLines(false);
         tbDSSoHoKhau.getTableHeader().setReorderingAllowed(false);
+        tbDSSoHoKhau.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDSSoHoKhauMouseClicked(evt);
+            }
+        });
         scDSThongBao.setViewportView(tbDSSoHoKhau);
         if (tbDSSoHoKhau.getColumnModel().getColumnCount() > 0) {
             tbDSSoHoKhau.getColumnModel().getColumn(0).setPreferredWidth(70);
@@ -509,9 +514,9 @@ public class ModApp extends javax.swing.JFrame {
         tbDSThongKeBaoCao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbDSThongKeBaoCao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null, null, null, null},
-                {"2", null, null, null, null},
-                {"3", null, null, null, null},
+                {"1", "qqqqqqqq", "eeee", "wwwwwww", "xxxxx"},
+                {"2", "ggggg", "cccc", "aaaa", "ssss"},
+                {"3", "wwwww", "xxx", "aaa", "gggg"},
                 {null, null, null, null, null}
             },
             new String [] {
@@ -539,10 +544,12 @@ public class ModApp extends javax.swing.JFrame {
         tbDSThongKeBaoCao.setShowHorizontalLines(false);
         tbDSThongKeBaoCao.setShowVerticalLines(false);
         tbDSThongKeBaoCao.getTableHeader().setReorderingAllowed(false);
+        tbDSThongKeBaoCao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDSThongKeBaoCaoMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbDSThongKeBaoCao);
-        if (tbDSThongKeBaoCao.getColumnModel().getColumnCount() > 0) {
-            tbDSThongKeBaoCao.getColumnModel().getColumn(4).setHeaderValue("Trạng thái");
-        }
 
         pnlTab3.add(jScrollPane2);
         jScrollPane2.setBounds(40, 35, 930, 500);
@@ -555,9 +562,9 @@ public class ModApp extends javax.swing.JFrame {
         tbDSThongBao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbDSThongBao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", null, null, null},
-                {"2", null, null, null},
-                {"3", null, null, null},
+                {"1", "www", "bbbb", "aaaa"},
+                {"2", "gggg", "wwww", "gggg"},
+                {"3", "aaaa", "bbb", "wwww"},
                 {null, null, null, null}
             },
             new String [] {
@@ -585,6 +592,11 @@ public class ModApp extends javax.swing.JFrame {
         tbDSThongBao.setShowHorizontalLines(false);
         tbDSThongBao.setShowVerticalLines(false);
         tbDSThongBao.getTableHeader().setReorderingAllowed(false);
+        tbDSThongBao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDSThongBaoMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tbDSThongBao);
 
         pnlTab4.add(jScrollPane3);
@@ -608,10 +620,10 @@ public class ModApp extends javax.swing.JFrame {
         tbDSLog.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbDSLog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asdasd", "asdasd", null, null, null, null},
-                {"1asd", "sadasd", null, null, null, null},
-                {"asdzc", "asads", null, null, null, null},
-                {"sad", "sda", null, null, null, null}
+                {"asdasd", "asdasd", "vvvv", "kkkkkk", "ggggg", "vvvv"},
+                {"1asd", "sadasd", "xxxx", "vvvvv", "nnnnn", "ggggg"},
+                {"asdzc", "asads", "xxxaddd", "ggg", "vvvv", "nnnn"},
+                {"sad", "sda", "gggg", "vvvvvv", "nnnnn", "vvvvv"}
             },
             new String [] {
                 "Thời gian", "STT", "ID Chủ hộ", "Tiêu đề", "Nội dung", "Kiểm duyệt"
@@ -639,6 +651,11 @@ public class ModApp extends javax.swing.JFrame {
         tbDSLog.setShowHorizontalLines(false);
         tbDSLog.setShowVerticalLines(false);
         tbDSLog.getTableHeader().setReorderingAllowed(false);
+        tbDSLog.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDSLogMouseClicked(evt);
+            }
+        });
         scDSLog.setViewportView(tbDSLog);
 
         pnlTab5.add(scDSLog);
@@ -740,8 +757,61 @@ public class ModApp extends javax.swing.JFrame {
 
     private void miDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDangXuatActionPerformed
         // TODO add your handling code here:
-        this.dispose();
+        new LoginFrame().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_miDangXuatActionPerformed
+
+    private void tbDSSoHoKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDSSoHoKhauMouseClicked
+        // TODO add your handling code here:
+        int index = tbDSSoHoKhau.getSelectedRow();
+        TableModel model = tbDSSoHoKhau.getModel();
+        String idSoHoKhau = model.getValueAt(index, 0).toString();
+        String hoTenChuHo = model.getValueAt(index, 1).toString();
+        String idChuHo = model.getValueAt(index, 2).toString();
+        String diaChi = model.getValueAt(index, 3).toString();
+        
+        ViewEditChuHoDialog vechd = new ViewEditChuHoDialog(this, rootPaneCheckingEnabled);
+        vechd.setVisible(true);
+    }//GEN-LAST:event_tbDSSoHoKhauMouseClicked
+
+    private void tbDSThongKeBaoCaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDSThongKeBaoCaoMouseClicked
+        // TODO add your handling code here:
+        int index = tbDSThongKeBaoCao.getSelectedRow();
+        TableModel model = tbDSThongKeBaoCao.getModel();
+        String thoiGian = model.getValueAt(index, 0).toString();
+        String idChuHo = model.getValueAt(index, 1).toString();
+        String yeuCau = model.getValueAt(index, 2).toString();
+        String kiemDuyet = model.getValueAt(index, 3).toString();
+        String trangThai = model.getValueAt(index, 4).toString();
+        
+        JOptionPane.showMessageDialog(rootPane, thoiGian + idChuHo + yeuCau);
+    }//GEN-LAST:event_tbDSThongKeBaoCaoMouseClicked
+
+    private void tbDSThongBaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDSThongBaoMouseClicked
+        // TODO add your handling code here:
+        int index = tbDSThongBao.getSelectedRow();
+        TableModel model = tbDSThongBao.getModel();
+        String thoiGian = model.getValueAt(index, 0).toString();
+        String stt = model.getValueAt(index, 1).toString();
+        String noiDung = model.getValueAt(index, 2).toString();
+        String nguoiDang = model.getValueAt(index, 3).toString();
+        
+        JOptionPane.showMessageDialog(rootPane, thoiGian + stt + noiDung);
+    }//GEN-LAST:event_tbDSThongBaoMouseClicked
+
+    private void tbDSLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDSLogMouseClicked
+        // TODO add your handling code here:
+        int index = tbDSLog.getSelectedRow();
+        TableModel model = tbDSLog.getModel();
+        String thoiGian = model.getValueAt(index, 0).toString();
+        String stt = model.getValueAt(index, 1).toString();
+        String idChuHo = model.getValueAt(index, 2).toString();
+        String tieuDe = model.getValueAt(index, 3).toString();
+        String noiDung = model.getValueAt(index, 4).toString();
+        String kiemDuyet = model.getValueAt(index, 5).toString();
+        
+        JOptionPane.showMessageDialog(rootPane, thoiGian + stt + idChuHo + tieuDe);
+    }//GEN-LAST:event_tbDSLogMouseClicked
 
     /**
      * @param args the command line arguments
