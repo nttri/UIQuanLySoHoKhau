@@ -102,6 +102,7 @@ public class ModApp extends javax.swing.JFrame {
         tbDSSoHoKhau = new javax.swing.JTable();
         tfTimSHK = new javax.swing.JTextField();
         btnTimSHK = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         pnlTab3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbDSThongKeBaoCao = new javax.swing.JTable();
@@ -126,6 +127,11 @@ public class ModApp extends javax.swing.JFrame {
         miDoiMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         miDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/password.png"))); // NOI18N
         miDoiMatKhau.setText("Đổi mật khẩu");
+        miDoiMatKhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miDoiMatKhauActionPerformed(evt);
+            }
+        });
         ppMenu.add(miDoiMatKhau);
 
         miDangXuat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -167,7 +173,7 @@ public class ModApp extends javax.swing.JFrame {
             }
         });
         pnlMain.add(btnTabQLThongTin);
-        btnTabQLThongTin.setBounds(0, 140, 200, 60);
+        btnTabQLThongTin.setBounds(0, 80, 200, 60);
 
         btnTabTimSHK.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnTabTimSHK.setText("Tìm kiếm sổ hộ khẩu");
@@ -497,14 +503,27 @@ public class ModApp extends javax.swing.JFrame {
             }
         });
         pnlTab2.add(tfTimSHK);
-        tfTimSHK.setBounds(340, 20, 180, 40);
+        tfTimSHK.setBounds(650, 20, 180, 40);
 
         btnTimSHK.setBackground(new java.awt.Color(102, 102, 102));
         btnTimSHK.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnTimSHK.setForeground(new java.awt.Color(255, 255, 255));
         btnTimSHK.setText("Tìm kiếm");
         pnlTab2.add(btnTimSHK);
-        btnTimSHK.setBounds(540, 20, 120, 40);
+        btnTimSHK.setBounds(850, 20, 120, 40);
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(49, 166, 72));
+        jButton1.setText("Thêm sổ hộ khẩu");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        pnlTab2.add(jButton1);
+        jButton1.setBounds(40, 20, 250, 40);
+        jButton1.getAccessibleContext().setAccessibleName("btnThemSoHoKhau");
 
         tabMain.addTab("tab2", pnlTab2);
 
@@ -514,9 +533,9 @@ public class ModApp extends javax.swing.JFrame {
         tbDSThongKeBaoCao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbDSThongKeBaoCao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "qqqqqqqq", "eeee", "wwwwwww", "xxxxx"},
-                {"2", "ggggg", "cccc", "aaaa", "ssss"},
-                {"3", "wwwww", "xxx", "aaa", "gggg"},
+                {"8:37 14/5/2017", "025486155", "Chuyển hộ khẩu", "095483214", "Đã phê duyệt"},
+                {"15:05 22/12/2017", "089426442", "Thêm nhân khẩu", "048533245", "Chưa phê duyệt"},
+                {"12:35 8/1/2018", "085006954", "Báo tử", "088452154", "Đã phê duyệt"},
                 {null, null, null, null, null}
             },
             new String [] {
@@ -562,13 +581,13 @@ public class ModApp extends javax.swing.JFrame {
         tbDSThongBao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbDSThongBao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "www", "bbbb", "aaaa"},
-                {"2", "gggg", "wwww", "gggg"},
-                {"3", "aaaa", "bbb", "wwww"},
+                {"www", "1", "bbbb", "aaaa"},
+                {"gggg", "2", "wwww", "gggg"},
+                {"aaaa", "3", "bbb", "wwww"},
                 {null, null, null, null}
             },
             new String [] {
-                "Thời gian", "STT", "Nội dung", "Người đăng"
+                "STT", "Thời gian", "Nội dung", "Người đăng"
             }
         ) {
             Class[] types = new Class [] {
@@ -598,9 +617,15 @@ public class ModApp extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(tbDSThongBao);
+        if (tbDSThongBao.getColumnModel().getColumnCount() > 0) {
+            tbDSThongBao.getColumnModel().getColumn(0).setMinWidth(80);
+            tbDSThongBao.getColumnModel().getColumn(0).setMaxWidth(80);
+            tbDSThongBao.getColumnModel().getColumn(1).setMinWidth(200);
+            tbDSThongBao.getColumnModel().getColumn(1).setMaxWidth(200);
+        }
 
         pnlTab4.add(jScrollPane3);
-        jScrollPane3.setBounds(40, 35, 930, 430);
+        jScrollPane3.setBounds(40, 35, 930, 500);
 
         btnThemThongBao.setBackground(new java.awt.Color(102, 102, 102));
         btnThemThongBao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -620,20 +645,20 @@ public class ModApp extends javax.swing.JFrame {
         tbDSLog.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbDSLog.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"asdasd", "asdasd", "vvvv", "kkkkkk", "ggggg", "vvvv"},
-                {"1asd", "sadasd", "xxxx", "vvvvv", "nnnnn", "ggggg"},
-                {"asdzc", "asads", "xxxaddd", "ggg", "vvvv", "nnnn"},
-                {"sad", "sda", "gggg", "vvvvvv", "nnnnn", "vvvvv"}
+                {"asdasd", "vvvv", "kkkkkk", "ggggg", "vvvv"},
+                {"1asd", "xxxx", "vvvvv", "nnnnn", "ggggg"},
+                {"asdzc", "xxxaddd", "ggg", "vvvv", "nnnn"},
+                {"sad", "gggg", "vvvvvv", "nnnnn", "vvvvv"}
             },
             new String [] {
-                "Thời gian", "STT", "ID Chủ hộ", "Tiêu đề", "Nội dung", "Kiểm duyệt"
+                "Thời gian", "ID Chủ hộ", "Tiêu đề", "Tình trạng", "Người kiểm duyệt"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -813,6 +838,17 @@ public class ModApp extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, thoiGian + stt + idChuHo + tieuDe);
     }//GEN-LAST:event_tbDSLogMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new AddSoHoKhauDialog(this, rootPaneCheckingEnabled).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void miDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDoiMatKhauActionPerformed
+        // TODO add your handling code here:
+        ChangePasswordDialog cpd = new ChangePasswordDialog(this, rootPaneCheckingEnabled);
+        cpd.setVisible(true);
+    }//GEN-LAST:event_miDoiMatKhauActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -861,6 +897,7 @@ public class ModApp extends javax.swing.JFrame {
     private javax.swing.JButton btnTabTimSHK;
     private javax.swing.JButton btnThemThongBao;
     private javax.swing.JButton btnTimSHK;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

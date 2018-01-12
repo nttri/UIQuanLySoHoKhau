@@ -10,7 +10,6 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
 
-
 public class AdminApp extends javax.swing.JFrame {
 
     public AdminApp() {
@@ -18,31 +17,31 @@ public class AdminApp extends javax.swing.JFrame {
         CustomInitComponents();
     }
 
-    public void CustomInitComponents(){
-        
+    public void CustomInitComponents() {
+
         this.setTitle("Người quản lý");
-        
-        pnlThongTin.setBackground(new Color(0,0,0, 80));
+
+        pnlThongTin.setBackground(new Color(0, 0, 0, 80));
         ScaleImageIcon("resource\\images\\banner.png", lblBanner);
         ScaleImageIcon("resource\\images\\menu.png", lblMenu);
         ScaleImageIcon("resource\\images\\quochuy.png", lblQuocHuy);
         ScaleImageIcon("resource\\images\\slogo.png", lblLogo);
-        
+
         //Xử lý click default tab
         tabMain.setSelectedIndex(0);
-        btnTabQLThongTin.setBackground(new Color(120,120,120));
+        btnTabQLThongTin.setBackground(new Color(120, 120, 120));
         curTabBtnClick = btnTabQLThongTin;
-        
+
     }
-    
-    public void ScaleImageIcon(String path, JLabel lbl){
+
+    public void ScaleImageIcon(String path, JLabel lbl) {
         ImageIcon icoBanner = new ImageIcon(path);
         Image img = icoBanner.getImage();
         Image newImg = img.getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImg);
         lbl.setIcon(image);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -124,6 +123,11 @@ public class AdminApp extends javax.swing.JFrame {
         miDoiMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         miDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/password.png"))); // NOI18N
         miDoiMatKhau.setText("Đổi mật khẩu");
+        miDoiMatKhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miDoiMatKhauActionPerformed(evt);
+            }
+        });
         ppMenu.add(miDoiMatKhau);
 
         miDangXuat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -170,7 +174,7 @@ public class AdminApp extends javax.swing.JFrame {
             }
         });
         pnlMain.add(btnTabQLThongTin);
-        btnTabQLThongTin.setBounds(0, 140, 200, 60);
+        btnTabQLThongTin.setBounds(0, 80, 200, 60);
         btnTabQLThongTin.getAccessibleContext().setAccessibleName("btnQuanLyThongTin");
 
         btnQuanLyKiemDuyet.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -449,7 +453,7 @@ public class AdminApp extends javax.swing.JFrame {
 
         scQuanLyKiemDuyet.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
-        tbQuanLyKiemDuyet.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbQuanLyKiemDuyet.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbQuanLyKiemDuyet.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"123", "asd", "vvvv", "nnnn", "bbbbbb"},
@@ -515,6 +519,7 @@ public class AdminApp extends javax.swing.JFrame {
         pnlBaoCaoThongKe.setBackground(new java.awt.Color(49, 166, 72));
         pnlBaoCaoThongKe.setLayout(null);
 
+        tbBaoCaoThongKe.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbBaoCaoThongKe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"1", "ffffff", "xxxxx", "pppp", "ccccc"},
@@ -562,22 +567,23 @@ public class AdminApp extends javax.swing.JFrame {
         pnlThongBao.setBackground(new java.awt.Color(49, 166, 72));
         pnlThongBao.setLayout(null);
 
+        tbThongBao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbThongBao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"1", "aaaaa", "xxxx", "bbbb"},
-                {"2", "bbb", "aaaa", "xxxx"},
-                {"3", "cccc", "xxxx", "aaaa"},
-                {null, null, null, null}
+                {"aaaaa", "1", "bbbb"},
+                {"bbb", "2", "xxxx"},
+                {"cccc", "3", "aaaa"},
+                {null, null, null}
             },
             new String [] {
-                "Thời gian", "STT", "Tiêu đề", "Nội dung"
+                "STT", "Thời gian", "Nội dung"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -601,12 +607,10 @@ public class AdminApp extends javax.swing.JFrame {
         });
         scThongBao.setViewportView(tbThongBao);
         if (tbThongBao.getColumnModel().getColumnCount() > 0) {
-            tbThongBao.getColumnModel().getColumn(0).setMinWidth(200);
-            tbThongBao.getColumnModel().getColumn(0).setMaxWidth(300);
-            tbThongBao.getColumnModel().getColumn(1).setMinWidth(150);
-            tbThongBao.getColumnModel().getColumn(1).setMaxWidth(200);
-            tbThongBao.getColumnModel().getColumn(2).setMinWidth(400);
-            tbThongBao.getColumnModel().getColumn(2).setMaxWidth(500);
+            tbThongBao.getColumnModel().getColumn(0).setMinWidth(80);
+            tbThongBao.getColumnModel().getColumn(0).setMaxWidth(80);
+            tbThongBao.getColumnModel().getColumn(1).setMinWidth(200);
+            tbThongBao.getColumnModel().getColumn(1).setMaxWidth(300);
         }
 
         pnlThongBao.add(scThongBao);
@@ -616,6 +620,11 @@ public class AdminApp extends javax.swing.JFrame {
         btnThemThongBao.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnThemThongBao.setForeground(new java.awt.Color(255, 255, 255));
         btnThemThongBao.setText("Thêm thông báo");
+        btnThemThongBao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemThongBaoActionPerformed(evt);
+            }
+        });
         pnlThongBao.add(btnThemThongBao);
         btnThemThongBao.setBounds(740, 480, 230, 40);
 
@@ -627,7 +636,7 @@ public class AdminApp extends javax.swing.JFrame {
 
         scLichSuTuongTac.setBackground(new java.awt.Color(255, 255, 255));
 
-        tbLichSuTuongTac.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbLichSuTuongTac.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         tbLichSuTuongTac.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"asdasd", "asdasd"},
@@ -717,33 +726,26 @@ public class AdminApp extends javax.swing.JFrame {
     private void btnChangeTab(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeTab
         // TODO add your handling code here:
         int idx = 0;
-        JButton btnClick = (JButton)evt.getSource();
+        JButton btnClick = (JButton) evt.getSource();
 
-        if (btnClick == curTabBtnClick) return;
+        if (btnClick == curTabBtnClick) {
+            return;
+        }
 
-        if (btnClick == btnTabQLThongTin)
-        {
+        if (btnClick == btnTabQLThongTin) {
             idx = 0;
-        }
-        else if (btnClick == btnQuanLyKiemDuyet)
-        {
+        } else if (btnClick == btnQuanLyKiemDuyet) {
             idx = 1;
-        }
-        else if (btnClick == btnBaoCaoThongKe)
-        {
+        } else if (btnClick == btnBaoCaoThongKe) {
             idx = 2;
-        }
-        else if (btnClick == btnThongBao)
-        {
+        } else if (btnClick == btnThongBao) {
             idx = 3;
-        }
-        else if (btnClick == btnLichSuTuongTac)
-        {
+        } else if (btnClick == btnLichSuTuongTac) {
             idx = 4;
         }
-        
-        btnClick.setBackground(new Color(120,120,120));
-        curTabBtnClick.setBackground(new Color(192,192,192));
+
+        btnClick.setBackground(new Color(120, 120, 120));
+        curTabBtnClick.setBackground(new Color(192, 192, 192));
 
         curTabBtnClick = btnClick;
         tabMain.setSelectedIndex(idx);
@@ -770,7 +772,7 @@ public class AdminApp extends javax.swing.JFrame {
         String phanQuyen = model.getValueAt(index, 2).toString();
         String hanCapQuyen = model.getValueAt(index, 3).toString();
         String trangThai = model.getValueAt(index, 4).toString();
-        
+
         ViewEditModDialog vemd = new ViewEditModDialog(this, rootPaneCheckingEnabled);
         vemd.setVisible(true);
     }//GEN-LAST:event_tbQuanLyKiemDuyetMouseClicked
@@ -784,7 +786,7 @@ public class AdminApp extends javax.swing.JFrame {
         String yeuCau = model.getValueAt(index, 2).toString();
         String kiemDuyet = model.getValueAt(index, 3).toString();
         String trangThai = model.getValueAt(index, 4).toString();
-        
+
         JOptionPane.showMessageDialog(rootPane, thoiGian + idChuHo + yeuCau + kiemDuyet);
     }//GEN-LAST:event_tbBaoCaoThongKeMouseClicked
 
@@ -792,12 +794,11 @@ public class AdminApp extends javax.swing.JFrame {
         // TODO add your handling code here:
         int index = tbThongBao.getSelectedRow();
         TableModel model = tbThongBao.getModel();
-        String thoiGian = model.getValueAt(index, 0).toString();
-        String stt = model.getValueAt(index, 1).toString();
-        String tieuDe = model.getValueAt(index, 2).toString();
-        String noiDung = model.getValueAt(index, 3).toString();
-        
-        JOptionPane.showMessageDialog(rootPane, thoiGian + stt + tieuDe + noiDung);
+        String stt = model.getValueAt(index, 0).toString();
+        String thoiGian = model.getValueAt(index, 1).toString();
+        String noiDung = model.getValueAt(index, 2).toString();
+
+        JOptionPane.showMessageDialog(rootPane, stt + thoiGian + noiDung);
     }//GEN-LAST:event_tbThongBaoMouseClicked
 
     private void tbLichSuTuongTacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbLichSuTuongTacMouseClicked
@@ -806,7 +807,7 @@ public class AdminApp extends javax.swing.JFrame {
         TableModel model = tbLichSuTuongTac.getModel();
         String ngayThang = model.getValueAt(index, 0).toString();
         String hoatDong = model.getValueAt(index, 1).toString();
-        
+
         JOptionPane.showMessageDialog(rootPane, ngayThang + hoatDong);
     }//GEN-LAST:event_tbLichSuTuongTacMouseClicked
 
@@ -815,6 +816,18 @@ public class AdminApp extends javax.swing.JFrame {
         new LoginFrame().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_miDangXuatMouseClicked
+
+    private void miDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miDoiMatKhauActionPerformed
+        // TODO add your handling code here:
+        ChangePasswordDialog cpd = new ChangePasswordDialog(this, rootPaneCheckingEnabled);
+        cpd.setVisible(true);
+    }//GEN-LAST:event_miDoiMatKhauActionPerformed
+
+    private void btnThemThongBaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemThongBaoActionPerformed
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_btnThemThongBaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -843,7 +856,7 @@ public class AdminApp extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -852,10 +865,10 @@ public class AdminApp extends javax.swing.JFrame {
             }
         });
     }
-    
+
     //variables declaration for flags
     private JButton curTabBtnClick;
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBaoCaoThongKe;
     private javax.swing.JButton btnChinhSua;

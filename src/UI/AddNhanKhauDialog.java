@@ -112,11 +112,6 @@ public class AddNhanKhauDialog extends javax.swing.JDialog {
         tfHoVaTen.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         tfHoVaTen.setMinimumSize(new java.awt.Dimension(6, 50));
         tfHoVaTen.setPreferredSize(new java.awt.Dimension(60, 40));
-        tfHoVaTen.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tfHoVaTenKeyTyped(evt);
-            }
-        });
         jPanel1.add(tfHoVaTen);
         tfHoVaTen.setBounds(183, 65, 405, 40);
 
@@ -182,11 +177,6 @@ public class AddNhanKhauDialog extends javax.swing.JDialog {
 
         tfNgaySinh.setDateFormatString("dd/MM/yyyy");
         tfNgaySinh.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        tfNgaySinh.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tfNgaySinhKeyTyped(evt);
-            }
-        });
         jPanel1.add(tfNgaySinh);
         tfNgaySinh.setBounds(183, 131, 166, 40);
 
@@ -231,10 +221,6 @@ public class AddNhanKhauDialog extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfHoVaTenKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfHoVaTenKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfHoVaTenKeyTyped
-
     private void tfCMNDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfCMNDKeyTyped
         // TODO add your handling code here:
         char checkChar = evt.getKeyChar();
@@ -243,10 +229,6 @@ public class AddNhanKhauDialog extends javax.swing.JDialog {
         if(tfCMND.getText().length()>8)
         evt.consume();
     }//GEN-LAST:event_tfCMNDKeyTyped
-
-    private void tfNgaySinhKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tfNgaySinhKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfNgaySinhKeyTyped
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:

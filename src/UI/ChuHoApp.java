@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
+
 /**
  *
  * @author MichaelScofield
@@ -28,29 +29,29 @@ public class ChuHoApp extends javax.swing.JFrame {
         CustomInitComponents();
     }
 
-    public void CustomInitComponents(){
+    public void CustomInitComponents() {
         this.setTitle("Chủ hộ - ID: xxxxxxxxxxxx");
-        
-        pnlThongTin.setBackground(new Color(0,0,0, 80));
+
+        pnlThongTin.setBackground(new Color(0, 0, 0, 80));
         ScaleImageIcon("resource\\images\\banner.png", lblBanner);
         ScaleImageIcon("resource\\images\\menu.png", lblMenu);
         ScaleImageIcon("resource\\images\\quochuy.png", lblQuocHuy);
         ScaleImageIcon("resource\\images\\slogo.png", lblLogo);
-        
+
         //Xử lý click default tab
         tabMain.setSelectedIndex(0);
-        btnTabThongTin.setBackground(new Color(120,120,120));
+        btnTabThongTin.setBackground(new Color(120, 120, 120));
         curTabBtnClick = btnTabThongTin;
     }
-    
-    public void ScaleImageIcon(String path, JLabel lbl){
+
+    public void ScaleImageIcon(String path, JLabel lbl) {
         ImageIcon icoBanner = new ImageIcon(path);
         Image img = icoBanner.getImage();
         Image newImg = img.getScaledInstance(lbl.getWidth(), lbl.getHeight(), Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImg);
         lbl.setIcon(image);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -107,6 +108,9 @@ public class ChuHoApp extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tbDSNhanKhau = new javax.swing.JTable();
         pnlHoTro = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tbDSYeuCauHoTro = new javax.swing.JTable();
+        btnThemYeuCau = new javax.swing.JButton();
         pnlLog = new javax.swing.JPanel();
         scDSLog = new javax.swing.JScrollPane();
         tbDSLog = new javax.swing.JTable();
@@ -123,6 +127,11 @@ public class ChuHoApp extends javax.swing.JFrame {
         mnuDoiMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         mnuDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resource/password.png"))); // NOI18N
         mnuDoiMatKhau.setText("Đổi mật khẩu");
+        mnuDoiMatKhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuDoiMatKhauActionPerformed(evt);
+            }
+        });
         ppMenu.add(mnuDoiMatKhau);
 
         mnuDangXuat.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -414,15 +423,7 @@ public class ChuHoApp extends javax.swing.JFrame {
             new Object [][] {
                 {"123", "asd"},
                 {"123", "fdgdfg"},
-                {"3123", "asd"},
-                {"12312", "asd"},
-                {"31223", "asd"},
-                {"31", "asd"},
-                {"12", "as"},
-                {"31212", "d"},
-                {"123", "ax"},
-                {"23", "cxzc"},
-                {"123s", "zc"}
+                {"3123", "asd"}
             },
             new String [] {
                 "Ngày Tháng", "Nội dung"
@@ -458,8 +459,8 @@ public class ChuHoApp extends javax.swing.JFrame {
         });
         scDSThongBao.setViewportView(tbDSThongBao);
         if (tbDSThongBao.getColumnModel().getColumnCount() > 0) {
-            tbDSThongBao.getColumnModel().getColumn(0).setMinWidth(120);
-            tbDSThongBao.getColumnModel().getColumn(0).setMaxWidth(120);
+            tbDSThongBao.getColumnModel().getColumn(0).setMinWidth(200);
+            tbDSThongBao.getColumnModel().getColumn(0).setMaxWidth(200);
         }
 
         pnlThongBao.add(scDSThongBao);
@@ -509,6 +510,10 @@ public class ChuHoApp extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(tbDSNhanKhau);
+        if (tbDSNhanKhau.getColumnModel().getColumnCount() > 0) {
+            tbDSNhanKhau.getColumnModel().getColumn(0).setMinWidth(50);
+            tbDSNhanKhau.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         pnlDSNhanKhau.add(jScrollPane2);
         jScrollPane2.setBounds(40, 35, 930, 500);
@@ -517,6 +522,68 @@ public class ChuHoApp extends javax.swing.JFrame {
 
         pnlHoTro.setBackground(new java.awt.Color(49, 166, 72));
         pnlHoTro.setLayout(null);
+
+        tbDSYeuCauHoTro.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        tbDSYeuCauHoTro.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", "www", "bbbb"},
+                {"2", "gggg", "wwww"},
+                {"3", "aaaa", "bbb"},
+                {null, null, null}
+            },
+            new String [] {
+                "Ngày tháng", "Tiêu đề", "Trạng thái"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbDSYeuCauHoTro.setPreferredSize(new java.awt.Dimension(185, 470));
+        tbDSYeuCauHoTro.setRowHeight(32);
+        tbDSYeuCauHoTro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tbDSYeuCauHoTro.setShowHorizontalLines(false);
+        tbDSYeuCauHoTro.setShowVerticalLines(false);
+        tbDSYeuCauHoTro.getTableHeader().setReorderingAllowed(false);
+        tbDSYeuCauHoTro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbDSYeuCauHoTroMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tbDSYeuCauHoTro);
+        if (tbDSYeuCauHoTro.getColumnModel().getColumnCount() > 0) {
+            tbDSYeuCauHoTro.getColumnModel().getColumn(0).setMinWidth(200);
+            tbDSYeuCauHoTro.getColumnModel().getColumn(0).setMaxWidth(200);
+            tbDSYeuCauHoTro.getColumnModel().getColumn(1).setMinWidth(550);
+            tbDSYeuCauHoTro.getColumnModel().getColumn(1).setMaxWidth(550);
+        }
+
+        pnlHoTro.add(jScrollPane3);
+        jScrollPane3.setBounds(40, 35, 930, 430);
+
+        btnThemYeuCau.setBackground(new java.awt.Color(102, 102, 102));
+        btnThemYeuCau.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnThemYeuCau.setForeground(new java.awt.Color(255, 255, 255));
+        btnThemYeuCau.setText("Thêm yêu cầu mới");
+        btnThemYeuCau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemYeuCauActionPerformed(evt);
+            }
+        });
+        pnlHoTro.add(btnThemYeuCau);
+        btnThemYeuCau.setBounds(740, 480, 230, 40);
+
         tabMain.addTab("tab4", pnlHoTro);
 
         pnlLog.setBackground(new java.awt.Color(49, 166, 72));
@@ -566,8 +633,8 @@ public class ChuHoApp extends javax.swing.JFrame {
         });
         scDSLog.setViewportView(tbDSLog);
         if (tbDSLog.getColumnModel().getColumnCount() > 0) {
-            tbDSLog.getColumnModel().getColumn(0).setMinWidth(120);
-            tbDSLog.getColumnModel().getColumn(0).setMaxWidth(120);
+            tbDSLog.getColumnModel().getColumn(0).setMinWidth(200);
+            tbDSLog.getColumnModel().getColumn(0).setMaxWidth(200);
         }
 
         pnlLog.add(scDSLog);
@@ -615,33 +682,26 @@ public class ChuHoApp extends javax.swing.JFrame {
     private void btnChangeTab(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeTab
         // TODO add your handling code here:
         int idx = 0;
-        JButton btnClick = (JButton)evt.getSource();
+        JButton btnClick = (JButton) evt.getSource();
 
-        if (btnClick == curTabBtnClick) return;
+        if (btnClick == curTabBtnClick) {
+            return;
+        }
 
-        if (btnClick == btnTabThongTin)
-        {
+        if (btnClick == btnTabThongTin) {
             idx = 0;
-        }
-        else if (btnClick == btnTabThongBao)
-        {
+        } else if (btnClick == btnTabThongBao) {
             idx = 1;
-        }
-        else if (btnClick == btnTabDSNhanKhau)
-        {
+        } else if (btnClick == btnTabDSNhanKhau) {
             idx = 2;
-        }
-        else if (btnClick == btnTabGuiYeuCau)
-        {
+        } else if (btnClick == btnTabGuiYeuCau) {
             idx = 3;
-        }
-        else if (btnClick == btnTabLog)
-        {
+        } else if (btnClick == btnTabLog) {
             idx = 4;
         }
 
-        btnClick.setBackground(new Color(120,120,120));
-        curTabBtnClick.setBackground(new Color(192,192,192));
+        btnClick.setBackground(new Color(120, 120, 120));
+        curTabBtnClick.setBackground(new Color(192, 192, 192));
 
         curTabBtnClick = btnClick;
         tabMain.setSelectedIndex(idx);
@@ -649,12 +709,15 @@ public class ChuHoApp extends javax.swing.JFrame {
 
     private void tbDSThongBaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDSThongBaoMouseClicked
         // TODO add your handling code here:
-        int index = tbDSThongBao.getSelectedRow();
-        TableModel model = tbDSThongBao.getModel();
-        String ngayThang = model.getValueAt(index, 0).toString();
-        String noiDung = model.getValueAt(index, 1).toString();
-        
-        JOptionPane.showMessageDialog(rootPane, ngayThang + noiDung);
+        if (evt.getClickCount() == 2) {
+            int index = tbDSThongBao.getSelectedRow();
+            TableModel model = tbDSThongBao.getModel();
+            String ngayThang = model.getValueAt(index, 0).toString();
+            String noiDung = model.getValueAt(index, 1).toString();
+
+            JOptionPane.showMessageDialog(rootPane, ngayThang + noiDung);
+        }
+
     }//GEN-LAST:event_tbDSThongBaoMouseClicked
 
     private void btnChinhSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChinhSuaActionPerformed
@@ -665,25 +728,31 @@ public class ChuHoApp extends javax.swing.JFrame {
 
     private void tbDSNhanKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDSNhanKhauMouseClicked
         // TODO add your handling code here:
-        int index = tbDSNhanKhau.getSelectedRow();
-        TableModel model = tbDSNhanKhau.getModel();
-        String stt = model.getValueAt(index, 0).toString();
-        String hoTen = model.getValueAt(index, 1).toString();
-        String gioiTinh = model.getValueAt(index, 2).toString();
-        String ngayNhapHo = model.getValueAt(index, 3).toString();
-        
-        ViewEditNhanKhauDialog venkd = new ViewEditNhanKhauDialog(this, rootPaneCheckingEnabled);
-        venkd.setVisible(true);
+        if (evt.getClickCount() == 2) {
+            int index = tbDSNhanKhau.getSelectedRow();
+            TableModel model = tbDSNhanKhau.getModel();
+            String stt = model.getValueAt(index, 0).toString();
+            String hoTen = model.getValueAt(index, 1).toString();
+            String gioiTinh = model.getValueAt(index, 2).toString();
+            String ngayNhapHo = model.getValueAt(index, 3).toString();
+
+            ViewEditNhanKhauDialog venkd = new ViewEditNhanKhauDialog(this, rootPaneCheckingEnabled);
+            venkd.setVisible(true);
+        }
+
     }//GEN-LAST:event_tbDSNhanKhauMouseClicked
 
     private void tbDSLogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDSLogMouseClicked
         // TODO add your handling code here:
-        int index = tbDSLog.getSelectedRow();
-        TableModel model = tbDSLog.getModel();
-        String ngayThang = model.getValueAt(index, 0).toString();
-        String hoatDong = model.getValueAt(index, 1).toString();
-        
-        JOptionPane.showMessageDialog(rootPane, ngayThang + hoatDong);
+        if (evt.getClickCount() == 2) {
+            int index = tbDSLog.getSelectedRow();
+            TableModel model = tbDSLog.getModel();
+            String ngayThang = model.getValueAt(index, 0).toString();
+            String hoatDong = model.getValueAt(index, 1).toString();
+
+            JOptionPane.showMessageDialog(rootPane, ngayThang + hoatDong);
+        }
+
     }//GEN-LAST:event_tbDSLogMouseClicked
 
     private void mnuDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuDangXuatActionPerformed
@@ -691,6 +760,33 @@ public class ChuHoApp extends javax.swing.JFrame {
         new LoginFrame().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_mnuDangXuatActionPerformed
+
+    private void mnuDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuDoiMatKhauActionPerformed
+        // TODO add your handling code here:
+        ChangePasswordDialog cpd = new ChangePasswordDialog(this, rootPaneCheckingEnabled);
+        cpd.setVisible(true);
+    }//GEN-LAST:event_mnuDoiMatKhauActionPerformed
+
+    private void tbDSYeuCauHoTroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbDSYeuCauHoTroMouseClicked
+        // TODO add your handling code here:
+        if (evt.getClickCount() == 2) {
+            int index = tbDSYeuCauHoTro.getSelectedRow();
+            TableModel model = tbDSYeuCauHoTro.getModel();
+            String ngayThang = model.getValueAt(index, 0).toString();
+            String tieuDe = model.getValueAt(index, 1).toString();
+            String trangThai = model.getValueAt(index, 2).toString();
+
+            ViewRequestDialog vrd = new ViewRequestDialog(this, rootPaneCheckingEnabled);
+            vrd.setVisible(true);
+        }
+
+    }//GEN-LAST:event_tbDSYeuCauHoTroMouseClicked
+
+    private void btnThemYeuCauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemYeuCauActionPerformed
+        // TODO add your handling code here:
+        SendRequestDialog srd = new SendRequestDialog(this, rootPaneCheckingEnabled);
+        srd.setVisible(true);
+    }//GEN-LAST:event_btnThemYeuCauActionPerformed
 
     /**
      * @param args the command line arguments
@@ -727,10 +823,10 @@ public class ChuHoApp extends javax.swing.JFrame {
             }
         });
     }
-    
+
     //variables declaration for flags
     private JButton curTabBtnClick;
-   
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChinhSua;
     private javax.swing.JButton btnTabDSNhanKhau;
@@ -738,6 +834,7 @@ public class ChuHoApp extends javax.swing.JFrame {
     private javax.swing.JButton btnTabLog;
     private javax.swing.JButton btnTabThongBao;
     private javax.swing.JButton btnTabThongTin;
+    private javax.swing.JButton btnThemYeuCau;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -757,6 +854,7 @@ public class ChuHoApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lblBanner;
     private javax.swing.JLabel lblDanToc;
@@ -789,5 +887,6 @@ public class ChuHoApp extends javax.swing.JFrame {
     private javax.swing.JTable tbDSLog;
     private javax.swing.JTable tbDSNhanKhau;
     private javax.swing.JTable tbDSThongBao;
+    private javax.swing.JTable tbDSYeuCauHoTro;
     // End of variables declaration//GEN-END:variables
 }

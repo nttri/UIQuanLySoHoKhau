@@ -34,6 +34,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1ead;t kh&#x1ea9;u"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miDoiMatKhauActionPerformed"/>
+          </Events>
         </MenuItem>
         <MenuItem class="javax.swing.JMenuItem" name="miDangXuat">
           <Properties>
@@ -148,7 +151,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="140" width="200" height="60"/>
+              <AbsoluteConstraints x="0" y="80" width="200" height="60"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -960,7 +963,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="340" y="20" width="180" height="40"/>
+                      <AbsoluteConstraints x="650" y="20" width="180" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -979,7 +982,32 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="540" y="20" width="120" height="40"/>
+                      <AbsoluteConstraints x="850" y="20" width="120" height="40"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButton1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="48" green="a6" red="31" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Th&#xea;m s&#x1ed5; h&#x1ed9; kh&#x1ea9;u"/>
+                  </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="btnThemSoHoKhau"/>
+                  </AccessibilityProperties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                  </Events>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="40" y="20" width="250" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1023,33 +1051,33 @@
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="4">
                             <Column editable="false" title="Th&#x1edd;i gian" type="java.lang.String">
-                              <Data value="1"/>
-                              <Data value="2"/>
-                              <Data value="3"/>
+                              <Data value="8:37 14/5/2017"/>
+                              <Data value="15:05 22/12/2017"/>
+                              <Data value="12:35 8/1/2018"/>
                               <Data value="null"/>
                             </Column>
                             <Column editable="false" title="ID Ch&#x1ee7; h&#x1ed9;" type="java.lang.String">
-                              <Data value="qqqqqqqq"/>
-                              <Data value="ggggg"/>
-                              <Data value="wwwww"/>
+                              <Data value="025486155"/>
+                              <Data value="089426442"/>
+                              <Data value="085006954"/>
                               <Data value="null"/>
                             </Column>
                             <Column editable="false" title="Y&#xea;u c&#x1ea7;u" type="java.lang.String">
-                              <Data value="eeee"/>
-                              <Data value="cccc"/>
-                              <Data value="xxx"/>
+                              <Data value="Chuy&#x1ec3;n h&#x1ed9; kh&#x1ea9;u"/>
+                              <Data value="Th&#xea;m nh&#xe2;n kh&#x1ea9;u"/>
+                              <Data value="B&#xe1;o t&#x1eed;"/>
                               <Data value="null"/>
                             </Column>
                             <Column editable="false" title="Ki&#x1ec3;m duy&#x1ec7;t" type="java.lang.String">
-                              <Data value="wwwwwww"/>
-                              <Data value="aaaa"/>
-                              <Data value="aaa"/>
+                              <Data value="095483214"/>
+                              <Data value="048533245"/>
+                              <Data value="088452154"/>
                               <Data value="null"/>
                             </Column>
                             <Column editable="false" title="Tr&#x1ea1;ng th&#xe1;i" type="java.lang.String">
-                              <Data value="xxxxx"/>
-                              <Data value="ssss"/>
-                              <Data value="gggg"/>
+                              <Data value="&#x110;&#xe3; ph&#xea; duy&#x1ec7;t"/>
+                              <Data value="Ch&#x1b0;a ph&#xea; duy&#x1ec7;t"/>
+                              <Data value="&#x110;&#xe3; ph&#xea; duy&#x1ec7;t"/>
                               <Data value="null"/>
                             </Column>
                           </Table>
@@ -1128,7 +1156,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="40" y="35" width="930" height="430"/>
+                      <AbsoluteConstraints x="40" y="35" width="930" height="500"/>
                     </Constraint>
                   </Constraints>
 
@@ -1141,16 +1169,16 @@
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="4" rowCount="4">
-                            <Column editable="false" title="Th&#x1edd;i gian" type="java.lang.String">
-                              <Data value="1"/>
-                              <Data value="2"/>
-                              <Data value="3"/>
-                              <Data value="null"/>
-                            </Column>
                             <Column editable="false" title="STT" type="java.lang.String">
                               <Data value="www"/>
                               <Data value="gggg"/>
                               <Data value="aaaa"/>
+                              <Data value="null"/>
+                            </Column>
+                            <Column editable="false" title="Th&#x1edd;i gian" type="java.lang.String">
+                              <Data value="1"/>
+                              <Data value="2"/>
+                              <Data value="3"/>
                               <Data value="null"/>
                             </Column>
                             <Column editable="false" title="N&#x1ed9;i dung" type="java.lang.String">
@@ -1169,12 +1197,12 @@
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                            <Column maxWidth="80" minWidth="80" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
                             </Column>
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                            <Column maxWidth="200" minWidth="200" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
                               <Renderer/>
@@ -1275,18 +1303,12 @@
                           <Font name="Tahoma" size="18" style="0"/>
                         </Property>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="6" rowCount="4">
+                          <Table columnCount="5" rowCount="4">
                             <Column editable="false" title="Th&#x1edd;i gian" type="java.lang.String">
                               <Data value="asdasd"/>
                               <Data value="1asd"/>
                               <Data value="asdzc"/>
                               <Data value="sad"/>
-                            </Column>
-                            <Column editable="false" title="STT" type="java.lang.String">
-                              <Data value="asdasd"/>
-                              <Data value="sadasd"/>
-                              <Data value="asads"/>
-                              <Data value="sda"/>
                             </Column>
                             <Column editable="false" title="ID Ch&#x1ee7; h&#x1ed9;" type="java.lang.String">
                               <Data value="vvvv"/>
@@ -1300,13 +1322,13 @@
                               <Data value="ggg"/>
                               <Data value="vvvvvv"/>
                             </Column>
-                            <Column editable="false" title="N&#x1ed9;i dung" type="java.lang.String">
+                            <Column editable="false" title="T&#xec;nh tr&#x1ea1;ng" type="java.lang.String">
                               <Data value="ggggg"/>
                               <Data value="nnnnn"/>
                               <Data value="vvvv"/>
                               <Data value="nnnnn"/>
                             </Column>
-                            <Column editable="false" title="Ki&#x1ec3;m duy&#x1ec7;t" type="java.lang.String">
+                            <Column editable="false" title="Ng&#x1b0;&#x1edd;i ki&#x1ec3;m duy&#x1ec7;t" type="java.lang.String">
                               <Data value="vvvv"/>
                               <Data value="ggggg"/>
                               <Data value="nnnn"/>
@@ -1316,11 +1338,6 @@
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                           <TableColumnModel selectionModel="0">
-                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                              <Title/>
-                              <Editor/>
-                              <Renderer/>
-                            </Column>
                             <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                               <Title/>
                               <Editor/>
